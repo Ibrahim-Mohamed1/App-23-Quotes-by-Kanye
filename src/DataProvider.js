@@ -3,9 +3,9 @@ import axios from "axios"
 const { Provider, Consumer } = React.createContext()
 
 class DataProvider extends Component {
-    constructor(){
+    constructor() {
         super()
-        this.state={
+        this.state = {
             quote: ''
         }
     }
@@ -15,7 +15,9 @@ class DataProvider extends Component {
             this.setState({
                 quote: res.data.quote
             })
-        })
+        }).catch(function (error) {
+            window.location.reload()
+        });
     }
 
     render() {
